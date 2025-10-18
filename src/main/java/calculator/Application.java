@@ -48,11 +48,16 @@ class Game {
         }
     }
 
+    void printResult() {
+        System.out.print("결과 : " + result);
+    }
+
     void run() {
         getValue();
         extractDelimiter();
         extractNumber();
         Calculate();
+        printResult();
     }
 }
 
