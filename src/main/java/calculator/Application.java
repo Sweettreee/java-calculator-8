@@ -1,10 +1,13 @@
 package calculator;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.StringTokenizer;
 
 class Game {
     String stringForCalculating;
     String delimiter;
+    int tokenCount = 0;
+    int[] num;
 
     void getValue() {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
@@ -24,9 +27,21 @@ class Game {
         }
     }
 
+    void extractNumber() {
+        StringTokenizer st = new StringTokenizer(stringForCalculating, delimiter);
+        tokenCount = st.countTokens();
+        num = new int[tokenCount];
+
+        int i = 0;
+        while (st.hasMoreTokens()) {
+            num[i++] = Integer.parseInt(st.nextToken());
+        }
+    }
+
     void run() {
         getValue();
         extractDelimiter();
+        extractNumber();
     }
 }
 
