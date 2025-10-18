@@ -8,6 +8,7 @@ class Game {
     String delimiter;
     int tokenCount = 0;
     int[] num;
+    int result = 0;
 
     void getValue() {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
@@ -38,10 +39,20 @@ class Game {
         }
     }
 
+    void Calculate() {
+        for (int i = 0; i < tokenCount; i++) {
+            if (num[i] < 0) {
+                throw new IllegalArgumentException();
+            }
+            result += num[i];
+        }
+    }
+
     void run() {
         getValue();
         extractDelimiter();
         extractNumber();
+        Calculate();
     }
 }
 
